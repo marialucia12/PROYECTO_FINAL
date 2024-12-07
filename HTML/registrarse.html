@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse | Óptica FG Visual Center</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+    <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+        <div class="login-box border rounded p-4 bg-white shadow">
+            <h1 class="text-center">Registrarse</h1>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="username">Nombre</label>
+                    <input type="text" class="form-control" id="username" placeholder="Ingrese su nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">apellido</label>
+                    <input type="text" class="form-control" id="lastname" placeholder="Ingrese su apellido" required>
+                </div>
+                <div class="form-group">
+                    <label for="usercc">Identificacion</label>
+                    <input type="text" class="form-control" id="usercc" placeholder="Ingrese su Identificacion" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" class="form-control" id="email" placeholder="Ingrese su correo" required>
+                </div>
+                <div class="form-group">
+                    <label for="numero">Numero de Telefono</label>
+                    <input type="number" class="form-control" id="numero" placeholder="Ingrese su numero" required>
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Dirección (opcional)</label>
+                    <input type="text" class="form-control" id="direccion" placeholder="Ingrese su direcion">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirmar Contraseña</label>
+                    <input type="password" class="form-control" id="confirm-password" placeholder="Confirme su contraseña" required>
+                </div>
+                <button type="button" class="btn btn-primary btn-block" onclick="registrase()">Registrarse</button>
+                
+                <a href="login.html" class="btn btn-secondary btn-block">Volver al Login</a>
+            </form>
+            <p id="register-error" class="error-message text-danger text-center" style="display: none;">Error en el registro, intente de nuevo.</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../JAVASCRIPT/script.js"></script>
+</body>
+</html>

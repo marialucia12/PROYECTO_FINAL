@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asesor EPS | Óptica FG Visual Center</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light">
+    <header class="p-3 mb-4" style="background-color: #007bff; color: #ffffff;">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="h3 mb-0">Óptica FG Visual Center - Asesor EPS</h1>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-white" href="#">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#" onclick="cerrar()">Cerrar sesión</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Formulario para Confirmar Cita -->
+        <section class="mb-4">
+            <h2 class="h4">Confirmar Cita</h2>
+            <form id="confirm-appointment-form" class="bg-white p-4 rounded shadow-sm">
+                <div class="container">
+                    <!-- Barra de búsqueda -->
+                    <div class="mb-3">
+                        <label for="searchDocument" class="form-label">Buscar por Documento:</label>
+                        <input type="text" id="searchDocument" class="form-control" placeholder="Ingresa el documento de identidad...">
+                    </div>
+            </form>
+        </section>
+
+        <!-- Botones de acción -->
+        <div class="mb-4">
+            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#registerClientModal">
+                Registrar Cliente Nuevo
+            </button>
+        </div>
+
+        <!-- Modal para Registrar Cliente Nuevo -->
+        <div class="modal fade" id="registerClientModal" tabindex="-1" aria-labelledby="registerClientModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="registerClientModalLabel">Registrar Cliente Nuevo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addUserForm">
+                            <div class="mb-3">
+                                <label for="addUserNombre" class="form-label">Nombre</label>
+                                <input type="text" id="addUserNombre" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="addUserApellido" class="form-label">Apellido</label>
+                                <input type="text" id="addUserApellido" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="addUserCorreo" class="form-label">Cedula</label>
+                                <input type="email" id="addUserDocumento" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="addUserCorreo" class="form-label">Correo</label>
+                                <input type="email" id="addUserCorreo" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="addUserTelefono" class="form-label">Teléfono</label>
+                                <input type="text" id="addUserTelefono" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="addUserDireccion" class="form-label">Dirección</label>
+                                <input type="text" id="addUserDireccion" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="addUserRol" class="form-label">Rol</label>
+                                <input type="text" id="addUserRol" class="form-control" value="cliente" readonly>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-success"onclick="addUser()">Agregar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container my-4">
+        <h3 class="text-center mb-4">Lista de Citas</h3>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered text-center align-middle shadow-sm">
+                <thead class="table-blue text-white">
+                    <tr>
+                        <th>Documento</th>
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+  
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const usuario = localStorage.getItem("usuario");
+        if (!usuario) {
+            location.href = "../../INDEX.HTML";
+        }
+    </script>
+
+    <script src="../../JAVASCRIPT/asesor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>
+
+

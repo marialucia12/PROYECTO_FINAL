@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Óptica FG Visual Center</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-light">
+    <!-- Barra de Navegación -->
+    <header class="p-3 mb-4" style="background-color: #007bff; color: #ffffff;">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="h3 mb-0">Óptica FG Visual Center</h1>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-white" href="vistaAdmin.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="citas.html">Citas</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="usuarios.html">Usuarios</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#" onclick="cerrar()">Cerrar sesión</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <!-- Indicadores y campos de entrada -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">Número de Usuarios</h5>
+                        <input type="number" class="form-control form-control-sm" id="numUsuariosInput" style="width: 60px;" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">Ventas Mensuales</h5>
+                        <input type="number" class="form-control form-control-sm" id="ventasMensualesInput" style="width: 60px;" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">Ventas Anuales</h5>
+                        <input type="number" class="form-control form-control-sm" id="ventasAnualesInput" style="width: 60px;" />
+                    </div>
+                </div>
+            </div>
+
+        <div class="row">
+            <!-- Gráficas en formato 3 columnas x 2 filas -->
+            <div class="col-md-4 mb-4">
+                <canvas id="chart1"></canvas>
+            </div>
+            <div class="col-md-4 mb-4">
+                <canvas id="chart2"></canvas>
+            </div>
+            <div class="col-md-4 mb-4">
+                <canvas id="chart3"></canvas>
+            </div>
+            <div class="col-md-4 mb-4">
+                <canvas id="chart4"></canvas>
+            </div>
+            <div class="col-md-4 mb-4">
+                <canvas id="chart5"></canvas>
+            </div>
+            <div class="col-md-4 mb-4">
+                <canvas id="chart6"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Gráfica 1
+        new Chart(document.getElementById('chart1'), {
+            type: 'bar',
+            data: {
+                labels: ['Enero', 'Febrero', 'Marzo'],
+                datasets: [{ label: 'Ventas', data: [120, 150, 180], backgroundColor: 'blue' }]
+            }
+        });
+
+        // Gráfica 2
+        new Chart(document.getElementById('chart2'), {
+            type: 'line',
+            data: {
+                labels: ['Semana 1', 'Semana 2', 'Semana 3'],
+                datasets: [{ label: 'Ingresos', data: [500, 600, 700], borderColor: 'green', borderWidth: 2 }]
+            }
+        });
+
+        // Gráfica 3
+        new Chart(document.getElementById('chart3'), {
+            type: 'pie',
+            data: {
+                labels: ['Lentes', 'Monturas', 'Otros'],
+                datasets: [{ data: [40, 35, 25], backgroundColor: ['red', 'yellow', 'blue'] }]
+            }
+        });
+
+        // Gráfica 4
+        new Chart(document.getElementById('chart4'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Confirmadas', 'Pendientes'],
+                datasets: [{ data: [60, 40], backgroundColor: ['green', 'orange'] }]
+            }
+        });
+
+        // Gráfica 5
+        new Chart(document.getElementById('chart5'), {
+            type: 'radar',
+            data: {
+                labels: ['Servicio', 'Precio', 'Atención'],
+                datasets: [{ label: 'Satisfacción', data: [85, 90, 80], backgroundColor: 'rgba(0,123,255,0.5)' }]
+            }
+        });
+
+        // Gráfica 6
+        new Chart(document.getElementById('chart6'), {
+            type: 'polarArea',
+            data: {
+                labels: ['Producto A', 'Producto B', 'Producto C'],
+                datasets: [{ data: [30, 50, 20], backgroundColor: ['purple', 'cyan', 'pink'] }]
+            }
+        });
+    </script>
+
+    <script>
+        const usuario = localStorage.getItem("usuario");
+        if (!usuario) {
+            location.href = "../../INDEX.HTML";
+        }
+    </script>
+    <script src="../JAVASCRIPT/script.js"></script>
+    <script src="../../JAVASCRIPT/admin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

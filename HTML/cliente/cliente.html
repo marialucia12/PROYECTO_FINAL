@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel del Cliente - FG Visual Center</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-primary">
+    <div class="container">
+        <a class="navbar-brand text-white fw-bold" href="#">FG Visual Center</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white fw-semibold" href="cliente.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fw-semibold" href="perfil.html">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link text-white fw-semibold" onclick="cerrar()">Cerrar Sesión</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Panel del Cliente</h2>
+
+
+    
+    <!-- Información de cita -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5>Información de tu Cita</h5>
+        </div>
+        <div class="card-body">
+            <p><strong>Fecha de la Cita:</strong> <span id="fechaCita">Cargando...</span></p>
+            <p><strong>Doctor Asignado:</strong> <span id="doctorAsignado">Cargando...</span></p>
+        </div>
+    </div>
+    
+
+    <!-- Examen optométrico -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5>Examen Optométrico</h5>
+        </div>
+        <div class="card-body">
+            <p>Tu examen optométrico está disponible. Haz clic en el siguiente botón para verlo:</p>
+            <button class="btn btn-success" onclick="mostrarModalResultados()">Ver Examen</button>
+        </div>
+    </div>
+    
+
+    <!-- Modal para resultados del examen -->
+<div class="modal fade" id="modalResultados" tabindex="-1" aria-labelledby="modalResultadosLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="modalResultadosLabel">Resultados del Examen</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body" id="contenidoModalResultados">
+        <!-- Contenido dinámico generado aquí -->
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+    
+    <!-- Botón para abrir el modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSolicitarCita">
+    Solicitar Cita
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalSolicitarCita" tabindex="-1" aria-labelledby="modalSolicitarCitaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Encabezado del modal -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalSolicitarCitaLabel">Solicitar Cita</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            
+            <!-- Cuerpo del modal -->
+            <div class="modal-body">
+                <form id="formSolicitarCita">
+                    <div class="mb-3">
+                        <label for="documento" class="form-label">Documento:</label>
+                        <input type="text" id="documento" class="form-control" name="documento" placeholder="Ingresa tu documento" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="fecha" class="form-label">Fecha de la cita:</label>
+                        <input type="date" id="fecha" class="form-control" name="fecha" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipoCita" class="form-label">Tipo de cita:</label>
+                        <select id="tipoCita" class="form-select" name="tipoCita" required>
+                            <option value="">Selecciona un tipo de cita</option>
+                            <option value="Consulta General">Consulta General</option>
+                            <option value="Control Visual">Control Visual</option>
+                            <option value="Adaptación de Lentes">Adaptación de Lentes</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Pie del modal -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="solicitarCita()">Solicitar Cita</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const usuario = localStorage.getItem("usuario");
+    if (!usuario) {
+        location.href = "../../INDEX.HTML";
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../JAVASCRIPT/cliente.js"></script>
+</body>
+</html>
